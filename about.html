@@ -1,0 +1,850 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - SheBusiness</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        :root {
+            --primary-pink: #e91e63;
+            --light-pink: #f8bbd9;
+            --dark-pink: #ad1457;
+            --accent-pink: #f06292;
+            --white: #ffffff;
+            --light-gray: #f5f5f5;
+            --dark-gray: #333333;
+        }
+
+        body {
+            background-color: var(--white);
+            color: var(--dark-gray);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header & Navigation */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+
+        .logo {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .logo-main {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary-pink);
+            letter-spacing: 1px;
+        }
+
+        .logo-subtitle {
+            font-size: 12px;
+            color: var(--dark-pink);
+            margin-top: 2px;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 30px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark-gray);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-pink);
+        }
+
+        .mobile-menu {
+            display: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: var(--primary-pink);
+        }
+
+        /* Page Header */
+        .page-header {
+            background: linear-gradient(135deg, var(--light-pink) 0%, var(--accent-pink) 100%);
+            padding: 150px 0 80px;
+            text-align: center;
+            color: var(--white);
+            margin-top: 80px;
+        }
+
+        .page-header h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .page-header p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto;
+            opacity: 0.9;
+        }
+
+        /* Mission Section */
+        .mission {
+            padding: 80px 0;
+            background-color: var(--white);
+        }
+
+        .mission-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .mission h2 {
+            color: var(--dark-pink);
+            margin-bottom: 30px;
+            font-size: 2.2rem;
+        }
+
+        .mission-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 30px;
+        }
+
+        .highlight-box {
+            background: var(--light-gray);
+            padding: 30px;
+            border-radius: 10px;
+            border-left: 4px solid var(--primary-pink);
+            margin: 30px 0;
+        }
+
+        /* Team Section */
+        .team {
+            padding: 80px 0;
+            background-color: var(--light-gray);
+        }
+
+        .team h2 {
+            text-align: center;
+            color: var(--dark-pink);
+            margin-bottom: 50px;
+            font-size: 2.2rem;
+        }
+
+        .department {
+            margin-bottom: 60px;
+        }
+
+        .department h3 {
+            color: var(--primary-pink);
+            margin-bottom: 30px;
+            font-size: 1.8rem;
+            text-align: center;
+            border-bottom: 2px solid var(--accent-pink);
+            padding-bottom: 10px;
+        }
+
+        .department-note {
+            text-align: center;
+            color: var(--dark-pink);
+            font-style: italic;
+            margin-bottom: 30px;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .team-member {
+            background: var(--white);
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .team-member:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-pink);
+        }
+
+        .member-photo {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: var(--light-pink);
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-pink);
+            font-size: 2rem;
+            border: 3px solid var(--accent-pink);
+        }
+
+        .member-info h4 {
+            color: var(--dark-pink);
+            margin-bottom: 5px;
+            font-size: 1.3rem;
+        }
+
+        .member-title {
+            color: var(--primary-pink);
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .member-pronouns {
+            color: var(--dark-gray);
+            opacity: 0.7;
+            margin-bottom: 15px;
+            font-size: 0.9rem;
+        }
+
+        .member-bio {
+            line-height: 1.6;
+            font-size: 0.95rem;
+        }
+
+        /* Departments Overview */
+        .departments-overview {
+            padding: 80px 0;
+            background-color: var(--white);
+        }
+
+        .departments-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .department-card {
+            background: var(--light-gray);
+            padding: 40px 30px;
+            border-radius: 10px;
+            text-align: center;
+            transition: transform 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .department-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-pink);
+        }
+
+        .department-card h3 {
+            color: var(--dark-pink);
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+        }
+
+        .department-card p {
+            line-height: 1.6;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            text-align: center;
+            font-size: 1rem;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-pink);
+            color: var(--white);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--dark-pink);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark-gray);
+            color: var(--white);
+            padding: 60px 0 20px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+          /* Logo Container */
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+/* Logo Image Container */
+.logo-image {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+/* Logo Image Styling */
+.logo-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+/* Logo Text */
+.logo-text {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.logo-main {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--primary-pink);
+    letter-spacing: 1px;
+    line-height: 1;
+}
+
+.logo-subtitle {
+    font-size: 12px;
+    color: var(--dark-pink);
+    margin-top: 2px;
+}
+        .footer-section h3 {
+            margin-bottom: 20px;
+            color: var(--light-pink);
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-section a {
+            color: var(--white);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-section a:hover {
+            color: var(--light-pink);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: var(--primary-pink);
+            border-radius: 50%;
+            transition: background-color 0.3s;
+            color: white;
+            text-decoration: none;
+        }
+
+        .social-links a:hover {
+            background-color: var(--accent-pink);
+            transform: translateY(-2px);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: var(--white);
+                flex-direction: column;
+                padding: 20px;
+                box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .nav-links li {
+                margin: 10px 0;
+                text-align: center;
+            }
+
+            .mobile-menu {
+                display: block;
+            }
+
+            .page-header {
+                padding: 130px 0 60px;
+                margin-top: 70px;
+            }
+
+            .page-header h1 {
+                font-size: 2.2rem;
+            }
+
+            .mission, .team, .departments-overview {
+                padding: 60px 0;
+            }
+
+            .team-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .departments-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .page-header h1 {
+                font-size: 1.8rem;
+            }
+
+            .team-member {
+                padding: 20px;
+            }
+
+            .member-photo {
+                width: 100px;
+                height: 100px;
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <header>
+        <nav>
+           <div class="logo-container">
+                <div class="logo-image">
+                    <img src="busi.png" alt="SheBusiness Logo">
+                </div>
+                <div class="logo-text">
+                    <div class="logo-main">SHE'S A BUSINESS</div>
+                    <div class="logo-subtitle">EST. 2024</div>
+                </div>
+            </div>
+            <ul class="nav-links">
+                <li><a href="homepage.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="get-involved.html">Get Involved</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <div class="mobile-menu">
+                <i class="fas fa-bars"></i>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>About SheBusiness</h1>
+            <p>A love letter to businesswomen worldwide - Female student-led initiative and research</p>
+        </div>
+    </section>
+
+    <!-- Mission Section -->
+    <section class="mission">
+        <div class="container">
+            <div class="mission-content">
+                <h2>Our Mission</h2>
+                <p class="mission-text">
+                    We empower and recognize aspiring and established business women worldwide. 
+                    Through community, resources, and opportunities, we're building a network 
+                    that supports and celebrates women in business at every stage of their journey.
+                </p>
+                <div class="highlight-box">
+                    <p>"A love letter to businesswomen worldwide"</p>
+                </div>
+                <p class="mission-text">
+                    Founded in 2024, SheBusiness has grown from a passionate student-led initiative 
+                    into a global community reaching thousands of women entrepreneurs and future leaders.
+                </p>
+                <a href="get-involved.html" class="btn btn-primary">Join Our Mission</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Departments Overview -->
+    <section class="departments-overview">
+        <div class="container">
+            <h2>Our Departments</h2>
+            <div class="departments-grid">
+                <div class="department-card">
+                    <h3>Research & Graphics</h3>
+                    <p>Conducting market research and creating visual content that educates and inspires our community.</p>
+                </div>
+                <div class="department-card">
+                    <h3>Events Coordination</h3>
+                    <p>Planning and executing workshops, networking events, and community gatherings.</p>
+                </div>
+                <div class="department-card">
+                    <h3>Outreach & Relations</h3>
+                    <p>Building partnerships and expanding our community through strategic outreach.</p>
+                </div>
+                <div class="department-card">
+                    <h3>Website Development</h3>
+                    <p>Creating and maintaining our digital presence to serve our global community.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="team">
+        <div class="container">
+            <h2>Meet Our Team</h2>
+            
+            <!-- Research Department -->
+            <div class="department">
+                <h3>Research & Graphics</h3>
+                <div class="team-grid">
+                    <div class="team-member">
+                        <div class="member-photo">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="member-info">
+                            <h4>Aishwarya Kapoor</h4>
+                            <p class="member-title">Director</p>
+                            <p class="member-bio">Leading research initiatives and data analysis for business insights.</p>
+                        </div>
+                    </div>
+                    <div class="team-member">
+                        <div class="member-photo">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="member-info">
+                            <h4>Diya Kumarasamy</h4>
+                            <p class="member-title">Director</p>
+                            <p class="member-bio">Overseeing research projects and content development.</p>
+                        </div>
+                    </div>
+                    <div class="team-member">
+                        <div class="member-photo">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="member-info">
+                            <h4>Melody Horoufi</h4>
+                            <p class="member-title">Director</p>
+                            <p class="member-bio">Managing research operations and team coordination.</p>
+                        </div>
+                    </div>
+                    <div class="team-member">
+                        <div class="member-photo">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="member-info">
+                            <h4>Katelyn Emma</h4>
+                            <p class="member-title">Research Intern</p>
+                            <p class="member-bio">Contributing to research projects and data analysis.</p>
+                        </div>
+                    </div>
+                    <div class="team-member">
+                        <div class="member-photo">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="member-info">
+                            <h4>Rozha Abouei</h4>
+                            <p class="member-title">Research Intern</p>
+                            <p class="member-bio">Supporting research initiatives and content creation.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Events Department -->
+            <div class="department">
+                <h3>Events Coordination</h3>
+                <div class="team-grid">
+                    <div class="team-member">
+                        <div class="member-photo">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="member-info">
+                            <h4>Pranaya Sharma</h4>
+                            <p class="member-title">Director</p>
+                            <p class="member-bio">Planning and executing community events and workshops.</p>
+                        </div>
+                    </div>
+                    <div class="team-member">
+                        <div class="member-photo">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="member-info">
+                            <h4>Naisha Goel</h4>
+                            <p class="member-title">Director</p>
+                            <p class="member-bio">Coordinating event logistics and participant engagement.</p>
+                        </div>
+                    </div>
+                    <div class="team-member">
+                        <div class="member-photo">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="member-info">
+                            <h4>Duru Yonar</h4>
+                            <p class="member-title">Director</p>
+                            <p class="member-bio">Managing event planning and execution strategies.</p>
+                        </div>
+                    </div>
+                    <div class="team-member">
+                        <div class="member-photo">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="member-info">
+                            <h4>Aima Irfan</h4>
+                            <p class="member-title">Events Intern</p>
+                            <p class="member-bio">Supporting event coordination and community engagement.</p>
+                        </div>
+                    </div>
+                    <div class="team-member">
+                        <div class="member-photo">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="member-info">
+                            <h4>Tanvi Tigulla</h4>
+                            <p class="member-title">Events Intern</p>
+                            <p class="member-bio">Assisting with event planning and execution.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Outreach Department -->
+            <div class="department">
+                <h3>Outreach & Relations</h3>
+                <div class="team-grid">
+                    <div class="team-member">
+                        <div class="member-photo">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="member-info">
+                            <h4>Chloe Wu</h4>
+                            <p class="member-title">Director</p>
+                            <p class="member-bio">Leading outreach initiatives and partnership development.</p>
+                        </div>
+                    </div>
+                    <div class="team-member">
+                        <div class="member-photo">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="member-info">
+                            <h4>Sreela Choudhury</h4>
+                            <p class="member-title">Director</p>
+                            <p class="member-bio">Managing community relations and engagement strategies.</p>
+                        </div>
+                    </div>
+                    <div class="team-member">
+                        <div class="member-photo">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="member-info">
+                            <h4>Mahi Mupid</h4>
+                            <p class="member-title">Director</p>
+                            <p class="member-bio">Overseeing outreach campaigns and relationship building.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Website Department -->
+            <div class="department">
+                <h3>Website Development</h3>
+                <div class="department-note">(Lead is not selected yet)</div>
+                <div class="team-grid">
+                    <div class="team-member">
+                        <div class="member-photo">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="member-info">
+                            <h4>Tamara Coelho</h4>
+                            <p class="member-title">Web Developer</p>
+                            <p class="member-bio">Contributing to website development and digital solutions.</p>
+                        </div>
+                    </div>
+                    <div class="team-member">
+                        <div class="member-photo">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="member-info">
+                            <h4>Zeniah Ellis</h4>
+                            <p class="member-title">Web Developer</p>
+                            <p class="member-bio">Working on web design and user experience improvements.</p>
+                        </div>
+                    </div>
+                    <div class="team-member">
+                        <div class="member-photo">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="member-info">
+                            <h4>Hasset Thomas</h4>
+                            <p class="member-title">Web Developer</p>
+                            <p class="member-bio">Developing website features and functionality.</p>
+                        </div>
+                    </div>
+                    <div class="team-member">
+                        <div class="member-photo">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="member-info">
+                            <h4>Nishka Kanchan</h4>
+                            <p class="member-title">Web Developer</p>
+                            <p class="member-bio">Creating and maintaining website content and design.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="logo">
+                        <div class="logo-main">SHE'S A BUSINESS</div>
+                        <div class="logo-subtitle">EST. 2024</div>
+                    </div>
+                    <p>Empowering women in business worldwide</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="homepage.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="get-involved.html">Get Involved</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Connect</h3>
+                    <div class="social-links">
+                        <a href="https://instagram.com/shes.business" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="mailto:talkshesbusiness@gmail.com"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 SheBusiness. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileMenu = document.querySelector('.mobile-menu');
+            const navLinks = document.querySelector('.nav-links');
+            
+            mobileMenu.addEventListener('click', function() {
+                navLinks.classList.toggle('active');
+            });
+
+            // Add animation to team members
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, observerOptions);
+
+            // Observe team members for animation
+            document.querySelectorAll('.team-member').forEach(el => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(20px)';
+                el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                observer.observe(el);
+            });
+
+            // Observe department cards for animation
+            document.querySelectorAll('.department-card').forEach(el => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(20px)';
+                el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                observer.observe(el);
+            });
+        });
+    </script>
+</body>
+</html>

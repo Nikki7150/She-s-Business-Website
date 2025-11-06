@@ -1,0 +1,856 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get Involved - SheBusiness</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        :root {
+            --primary-pink: #e91e63;
+            --light-pink: #f8bbd9;
+            --dark-pink: #ad1457;
+            --accent-pink: #f06292;
+            --white: #ffffff;
+            --light-gray: #f5f5f5;
+            --dark-gray: #333333;
+        }
+
+        body {
+            background-color: var(--white);
+            color: var(--dark-gray);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header & Navigation */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+
+        .logo {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .logo-main {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary-pink);
+            letter-spacing: 1px;
+        }
+
+        .logo-subtitle {
+            font-size: 12px;
+            color: var(--dark-pink);
+            margin-top: 2px;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 30px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark-gray);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-pink);
+        }
+
+        .mobile-menu {
+            display: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: var(--primary-pink);
+        }
+        /* Logo Container */
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+/* Logo Image Container */
+.logo-image {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+/* Logo Image Styling */
+.logo-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+/* Logo Text */
+.logo-text {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.logo-main {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--primary-pink);
+    letter-spacing: 1px;
+    line-height: 1;
+}
+
+.logo-subtitle {
+    font-size: 12px;
+    color: var(--dark-pink);
+    margin-top: 2px;
+}
+
+        /* Page Header */
+        .page-header {
+            background: linear-gradient(135deg, var(--light-pink) 0%, var(--accent-pink) 100%);
+            padding: 150px 0 80px;
+            text-align: center;
+            color: var(--white);
+            margin-top: 80px;
+        }
+
+        .page-header h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .page-header p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto;
+            opacity: 0.9;
+        }
+
+        /* Options Section */
+        .options {
+            padding: 80px 0;
+            background-color: var(--white);
+        }
+
+        .options-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            margin-top: 50px;
+        }
+
+        .option-card {
+            background: var(--light-gray);
+            padding: 50px 40px;
+            border-radius: 15px;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 3px solid transparent;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .option-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--accent-pink);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+
+        .option-card.closed {
+            opacity: 0.7;
+            background: linear-gradient(135deg, var(--light-gray) 0%, #e0e0e0 100%);
+        }
+
+        .closed-badge {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: var(--dark-gray);
+            color: var(--white);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .option-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--primary-pink);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            color: var(--white);
+            font-size: 2rem;
+        }
+
+        .option-card h3 {
+            color: var(--dark-pink);
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+        }
+
+        .option-card p {
+            margin-bottom: 25px;
+            line-height: 1.7;
+        }
+
+        .feature-list {
+            text-align: left;
+            margin: 25px 0;
+            padding-left: 20px;
+        }
+
+        .feature-list li {
+            margin-bottom: 10px;
+            position: relative;
+        }
+
+        .feature-list li:before {
+            content: "✓";
+            color: var(--primary-pink);
+            font-weight: bold;
+            position: absolute;
+            left: -20px;
+        }
+
+        /* Forms Section */
+        .forms-section {
+            padding: 80px 0;
+            background-color: var(--light-gray);
+        }
+
+        .form-container {
+            background: var(--white);
+            padding: 50px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--dark-pink);
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid var(--light-gray);
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--accent-pink);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .form-hidden {
+            display: none;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            text-align: center;
+            font-size: 1rem;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-pink);
+            color: var(--white);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--dark-pink);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--primary-pink);
+            border: 2px solid var(--primary-pink);
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--primary-pink);
+            color: var(--white);
+            transform: translateY(-2px);
+        }
+
+        .btn-disabled {
+            background-color: #cccccc;
+            color: #666666;
+            cursor: not-allowed;
+        }
+
+        .btn-disabled:hover {
+            transform: none;
+            box-shadow: none;
+        }
+
+        /* Success Message */
+        .success-message {
+            background: linear-gradient(135deg, #4CAF50, #45a049);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            margin-bottom: 30px;
+            display: none;
+        }
+
+        .success-message.show {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark-gray);
+            color: var(--white);
+            padding: 60px 0 20px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 20px;
+            color: var(--light-pink);
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-section a {
+            color: var(--white);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-section a:hover {
+            color: var(--light-pink);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: var(--primary-pink);
+            border-radius: 50%;
+            transition: background-color 0.3s;
+            color: white;
+            text-decoration: none;
+        }
+
+        .social-links a:hover {
+            background-color: var(--accent-pink);
+            transform: translateY(-2px);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: var(--white);
+                flex-direction: column;
+                padding: 20px;
+                box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .nav-links li {
+                margin: 10px 0;
+                text-align: center;
+            }
+
+            .mobile-menu {
+                display: block;
+            }
+
+            .page-header {
+                padding: 130px 0 60px;
+                margin-top: 70px;
+            }
+
+            .page-header h1 {
+                font-size: 2.2rem;
+            }
+
+            .options, .forms-section {
+                padding: 60px 0;
+            }
+
+            .options-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .option-card {
+                padding: 40px 30px;
+            }
+
+            .form-container {
+                padding: 30px 20px;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+                gap: 0;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .page-header h1 {
+                font-size: 1.8rem;
+            }
+
+            .option-card {
+                padding: 30px 20px;
+            }
+
+            .option-icon {
+                width: 60px;
+                height: 60px;
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <header>
+        <nav>
+            <div class="logo-container">
+                <div class="logo-image">
+                    <img src="busi.png" alt="SheBusiness Logo">
+                </div>
+                <div class="logo-text">
+                    <div class="logo-main">SHE'S A BUSINESS</div>
+                    <div class="logo-subtitle">EST. 2024</div>
+                </div>
+            </div>
+            <ul class="nav-links">
+                <li><a href="homepage.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="get-involved.html">Get Involved</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <div class="mobile-menu">
+                <i class="fas fa-bars"></i>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Get Involved</h1>
+            <p>Join our mission to empower women in business worldwide</p>
+        </div>
+    </section>
+
+    <!-- Options Section -->
+    <section class="options">
+        <div class="container">
+            <h2 style="text-align: center; color: var(--dark-pink); margin-bottom: 50px; font-size: 2.2rem;">Ways to Get Involved</h2>
+            <div class="options-grid">
+                <!-- Business Promotion -->
+                <div class="option-card">
+                    <div class="option-icon">
+                        <i class="fas fa-bullhorn"></i>
+                    </div>
+                    <h3>Business Promotion</h3>
+                    <p>Advertise your organization or business with She's Business and reach our growing community</p>
+                    <ul class="feature-list">
+                        <li>Reach 2,000+ of our followers</li>
+                        <li>25K+ monthly profile views</li>
+                        <li>Recruit employees/interns and customers</li>
+                        <li>Gain traction for your business</li>
+                    </ul>
+                    <button class="btn btn-primary" onclick="showForm('promotion')">Apply Now</button>
+                </div>
+
+                <!-- Chapter Application -->
+                <div class="option-card">
+                    <div class="option-icon">
+                        <i class="fas fa-school"></i>
+                    </div>
+                    <h3>Start a Chapter</h3>
+                    <p>Bring SheBusiness to your school or community and lead the next generation of women in business</p>
+                    <ul class="feature-list">
+                        <li>Join 9+ chapters worldwide</li>
+                        <li>Receive support and resources</li>
+                        <li>Build leadership experience</li>
+                        <li>Connect with like-minded students</li>
+                    </ul>
+                    <button class="btn btn-primary" onclick="showForm('chapter')">Apply Now</button>
+                </div>
+
+                <!-- Team Application -->
+                <div class="option-card closed">
+                    <div class="closed-badge">CLOSED</div>
+                    <div class="option-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Join Our Team</h3>
+                    <p>Become part of our core team and help drive our mission forward (Currently closed for applications)</p>
+                    <ul class="feature-list">
+                        <li>Work with passionate students</li>
+                        <li>Gain valuable experience</li>
+                        <li>Make a real impact</li>
+                        <li>Flexible remote opportunities</li>
+                    </ul>
+                    <button class="btn btn-disabled" disabled>Applications Closed</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Forms Section -->
+    <section class="forms-section" id="forms-section">
+        <div class="container">
+            <!-- Success Message -->
+            <div class="success-message" id="success-message">
+                <i class="fas fa-check-circle" style="font-size: 2rem; margin-bottom: 10px;"></i>
+                <h3>Application Submitted!</h3>
+                <p>Thank you for your interest in SheBusiness. We'll review your application and get back to you soon.</p>
+            </div>
+
+            <!-- Business Promotion Form -->
+            <div class="form-container" id="promotion-form">
+                <h2 style="color: var(--dark-pink); margin-bottom: 30px; text-align: center;">Business Promotion Application</h2>
+                <form id="promotionForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="business-name">Business/Organization Name *</label>
+                            <input type="text" id="business-name" name="business-name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="contact-person">Contact Person *</label>
+                            <input type="text" id="contact-person" name="contact-person" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="email">Email Address *</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" name="phone">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="business-type">Type of Business/Organization *</label>
+                        <select id="business-type" name="business-type" required>
+                            <option value="">Select type...</option>
+                            <option value="startup">Startup</option>
+                            <option value="small-business">Small Business</option>
+                            <option value="non-profit">Non-Profit Organization</option>
+                            <option value="educational">Educational Institution</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="promotion-details">What would you like to promote? *</label>
+                        <textarea id="promotion-details" name="promotion-details" placeholder="Tell us about your business, products, services, or what you'd like to feature..." required></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="target-audience">Target Audience</label>
+                        <input type="text" id="target-audience" name="target-audience" placeholder="Who are you trying to reach?">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="goals">What are your goals for this promotion? *</label>
+                        <textarea id="goals" name="goals" placeholder="Recruitment, brand awareness, product launch, etc." required></textarea>
+                    </div>
+
+                    <div style="text-align: center; margin-top: 30px;">
+                        <button type="submit" class="btn btn-primary" style="padding: 15px 40px;">Submit Application</button>
+                        <button type="button" class="btn btn-secondary" onclick="hideForms()" style="margin-left: 15px;">Cancel</button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Chapter Application Form -->
+            <div class="form-container form-hidden" id="chapter-form">
+                <h2 style="color: var(--dark-pink); margin-bottom: 30px; text-align: center;">Chapter Application</h2>
+                <form id="chapterForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="chapter-name">Full Name *</label>
+                            <input type="text" id="chapter-name" name="chapter-name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="chapter-email">Email Address *</label>
+                            <input type="email" id="chapter-email" name="chapter-email" required>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="school-name">School/Institution Name *</label>
+                            <input type="text" id="school-name" name="school-name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="grade-level">Grade Level *</label>
+                            <select id="grade-level" name="grade-level" required>
+                                <option value="">Select grade level...</option>
+                                <option value="high-school">High School</option>
+                                <option value="undergraduate">Undergraduate</option>
+                                <option value="graduate">Graduate</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="chapter-location">City & Country *</label>
+                        <input type="text" id="chapter-location" name="chapter-location" placeholder="e.g., Vancouver, Canada" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="chapter-experience">Relevant Experience & Leadership Roles</label>
+                        <textarea id="chapter-experience" name="chapter-experience" placeholder="Tell us about any previous leadership experience, club involvement, or relevant activities..."></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="chapter-vision">Your Vision for the Chapter *</label>
+                        <textarea id="chapter-vision" name="chapter-vision" placeholder="What would you like to accomplish with this chapter? What activities or events would you plan?" required></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="chapter-why">Why do you want to start a SheBusiness chapter? *</label>
+                        <textarea id="chapter-why" name="chapter-why" placeholder="What motivates you to bring SheBusiness to your community?" required></textarea>
+                    </div>
+
+                    <div style="text-align: center; margin-top: 30px;">
+                        <button type="submit" class="btn btn-primary" style="padding: 15px 40px;">Submit Application</button>
+                        <button type="button" class="btn btn-secondary" onclick="hideForms()" style="margin-left: 15px;">Cancel</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="logo">
+                        <div class="logo-main">SHE'S A BUSINESS</div>
+                        <div class="logo-subtitle">EST. 2024</div>
+                    </div>
+                    <p>Empowering women in business worldwide</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="homepage.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="get-involved.html">Get Involved</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Connect</h3>
+                    <div class="social-links">
+                        <a href="https://instagram.com/shes.business" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="mailto:talkshesbusiness@gmail.com"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 SheBusiness. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileMenu = document.querySelector('.mobile-menu');
+            const navLinks = document.querySelector('.nav-links');
+            
+            mobileMenu.addEventListener('click', function() {
+                navLinks.classList.toggle('active');
+            });
+
+            // Initially hide forms section
+            document.getElementById('forms-section').style.display = 'none';
+
+            // Form submissions
+            document.getElementById('promotionForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+                showSuccessMessage();
+            });
+
+            document.getElementById('chapterForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+                showSuccessMessage();
+            });
+        });
+
+        function showForm(formType) {
+            const formsSection = document.getElementById('forms-section');
+            const promotionForm = document.getElementById('promotion-form');
+            const chapterForm = document.getElementById('chapter-form');
+            const successMessage = document.getElementById('success-message');
+
+            // Hide success message and show forms section
+            successMessage.classList.remove('show');
+            formsSection.style.display = 'block';
+
+            // Scroll to forms section
+            formsSection.scrollIntoView({ behavior: 'smooth' });
+
+            // Show the correct form
+            if (formType === 'promotion') {
+                promotionForm.classList.remove('form-hidden');
+                chapterForm.classList.add('form-hidden');
+            } else if (formType === 'chapter') {
+                chapterForm.classList.remove('form-hidden');
+                promotionForm.classList.add('form-hidden');
+            }
+        }
+
+        function hideForms() {
+            document.getElementById('forms-section').style.display = 'none';
+        }
+
+        function showSuccessMessage() {
+            const successMessage = document.getElementById('success-message');
+            const formsSection = document.getElementById('forms-section');
+            
+            // Hide forms and show success message
+            document.getElementById('promotion-form').classList.add('form-hidden');
+            document.getElementById('chapter-form').classList.add('form-hidden');
+            successMessage.classList.add('show');
+
+            // Scroll to success message
+            formsSection.scrollIntoView({ behavior: 'smooth' });
+
+            // Reset forms after success
+            setTimeout(() => {
+                document.getElementById('promotionForm').reset();
+                document.getElementById('chapterForm').reset();
+            }, 1000);
+        }
+    </script>
+</body>
+</html>

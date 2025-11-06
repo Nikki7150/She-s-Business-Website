@@ -1,0 +1,865 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - SheBusiness</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        :root {
+            --primary-pink: #e91e63;
+            --light-pink: #f8bbd9;
+            --dark-pink: #ad1457;
+            --accent-pink: #f06292;
+            --white: #ffffff;
+            --light-gray: #f5f5f5;
+            --dark-gray: #333333;
+        }
+
+        body {
+            background-color: var(--white);
+            color: var(--dark-gray);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header & Navigation */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+
+        .logo {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .logo-main {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary-pink);
+            letter-spacing: 1px;
+        }
+
+        .logo-subtitle {
+            font-size: 12px;
+            color: var(--dark-pink);
+            margin-top: 2px;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 30px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark-gray);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-pink);
+        }
+
+        .mobile-menu {
+            display: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: var(--primary-pink);
+        }
+
+        /* Page Header */
+        .page-header {
+            background: linear-gradient(135deg, var(--light-pink) 0%, var(--accent-pink) 100%);
+            padding: 150px 0 80px;
+            text-align: center;
+            color: var(--white);
+            margin-top: 80px;
+        }
+
+        .page-header h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .page-header p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto;
+            opacity: 0.9;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            padding: 80px 0;
+            background-color: var(--white);
+        }
+
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: start;
+        }
+
+        .contact-info {
+            padding: 40px;
+        }
+
+        .contact-info h2 {
+            color: var(--dark-pink);
+            margin-bottom: 30px;
+            font-size: 2.2rem;
+        }
+
+        .contact-info p {
+            margin-bottom: 30px;
+            font-size: 1.1rem;
+            line-height: 1.7;
+        }
+
+        .contact-methods {
+            margin-top: 40px;
+        }
+
+        .contact-method {
+            display: flex;
+            align-items: center;
+            margin-bottom: 25px;
+            padding: 20px;
+            background: var(--light-gray);
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .contact-method:hover {
+            transform: translateX(10px);
+        }
+
+        .contact-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--primary-pink);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 1.5rem;
+            margin-right: 20px;
+            flex-shrink: 0;
+        }
+
+        .contact-details h4 {
+            color: var(--dark-pink);
+            margin-bottom: 5px;
+            font-size: 1.2rem;
+        }
+
+        .contact-details a {
+            color: var(--primary-pink);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        .contact-details a:hover {
+            color: var(--dark-pink);
+        }
+
+        /* Contact Form */
+        .contact-form-container {
+            background: var(--light-gray);
+            padding: 50px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .contact-form-container h2 {
+            color: var(--dark-pink);
+            margin-bottom: 30px;
+            font-size: 2.2rem;
+            text-align: center;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--dark-pink);
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid var(--light-gray);
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: all 0.3s;
+            background: var(--white);
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--accent-pink);
+            box-shadow: 0 0 0 3px rgba(240, 98, 146, 0.1);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            padding: 80px 0;
+            background-color: var(--light-gray);
+        }
+
+        .faq-section h2 {
+            text-align: center;
+            color: var(--dark-pink);
+            margin-bottom: 50px;
+            font-size: 2.2rem;
+        }
+
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background: var(--white);
+            margin-bottom: 15px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+
+        .faq-question {
+            padding: 20px 25px;
+            background: var(--primary-pink);
+            color: var(--white);
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background-color 0.3s;
+        }
+
+        .faq-question:hover {
+            background: var(--dark-pink);
+        }
+
+        .faq-question i {
+            transition: transform 0.3s;
+        }
+
+        .faq-answer {
+            padding: 0 25px;
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .faq-item.active .faq-answer {
+            padding: 25px;
+            max-height: 500px;
+        }
+
+        .faq-item.active .faq-question i {
+            transform: rotate(180deg);
+        }
+
+        /* Success Message */
+        .success-message {
+            background: linear-gradient(135deg, #4CAF50, #45a049);
+            color: white;
+            padding: 25px;
+            border-radius: 10px;
+            text-align: center;
+            margin-bottom: 30px;
+            display: none;
+        }
+
+        .success-message.show {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            text-align: center;
+            font-size: 1rem;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-pink);
+            color: var(--white);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--dark-pink);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .btn-full {
+            width: 100%;
+            padding: 15px;
+            font-size: 1.1rem;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark-gray);
+            color: var(--white);
+            padding: 60px 0 20px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 20px;
+            color: var(--light-pink);
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-section a {
+            color: var(--white);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        /* Logo Container */
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+/* Logo Image Container */
+.logo-image {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+/* Logo Image Styling */
+.logo-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+/* Logo Text */
+.logo-text {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.logo-main {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--primary-pink);
+    letter-spacing: 1px;
+    line-height: 1;
+}
+
+.logo-subtitle {
+    font-size: 12px;
+    color: var(--dark-pink);
+    margin-top: 2px;
+}
+
+        .footer-section a:hover {
+            color: var(--light-pink);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: var(--primary-pink);
+            border-radius: 50%;
+            transition: background-color 0.3s;
+            color: white;
+            text-decoration: none;
+        }
+
+        .social-links a:hover {
+            background-color: var(--accent-pink);
+            transform: translateY(-2px);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: var(--white);
+                flex-direction: column;
+                padding: 20px;
+                box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .nav-links li {
+                margin: 10px 0;
+                text-align: center;
+            }
+
+            .mobile-menu {
+                display: block;
+            }
+
+            .page-header {
+                padding: 130px 0 60px;
+                margin-top: 70px;
+            }
+
+            .page-header h1 {
+                font-size: 2.2rem;
+            }
+
+            .contact-section, .faq-section {
+                padding: 60px 0;
+            }
+
+            .contact-container {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .contact-info {
+                padding: 0;
+            }
+
+            .contact-form-container {
+                padding: 30px 25px;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+                gap: 0;
+            }
+
+            .contact-method {
+                padding: 15px;
+            }
+
+            .contact-icon {
+                width: 50px;
+                height: 50px;
+                font-size: 1.2rem;
+                margin-right: 15px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .page-header h1 {
+                font-size: 1.8rem;
+            }
+
+            .contact-form-container {
+                padding: 25px 20px;
+            }
+
+            .faq-question {
+                padding: 15px 20px;
+                font-size: 0.95rem;
+            }
+
+            .contact-method {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .contact-icon {
+                margin-right: 0;
+                margin-bottom: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <header>
+        <nav>
+            <div class="logo-container">
+                <div class="logo-image">
+                    <img src="busi.png" alt="SheBusiness Logo">
+                </div>
+                <div class="logo-text">
+                    <div class="logo-main">SHE'S A BUSINESS</div>
+                    <div class="logo-subtitle">EST. 2024</div>
+                </div>
+            </div>
+            <ul class="nav-links">
+                <li><a href="homepage.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="get-involved.html">Get Involved</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <div class="mobile-menu">
+                <i class="fas fa-bars"></i>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Contact Us</h1>
+            <p>Get in touch with SheBusiness - we'd love to hear from you!</p>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section">
+        <div class="container">
+            <div class="contact-container">
+                <!-- Contact Information -->
+                <div class="contact-info">
+                    <h2>Get In Touch</h2>
+                    <p>Have questions about our programs, want to collaborate, or just say hello? We're here to help and would love to connect with you.</p>
+                    
+                    <div class="contact-methods">
+                        <div class="contact-method">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h4>Email Us</h4>
+                                <a href="mailto:talkshesbusiness@gmail.com">talkshesbusiness@gmail.com</a>
+                                <p>We typically respond within 24-48 hours</p>
+                            </div>
+                        </div>
+
+                        <div class="contact-method">
+                            <div class="contact-icon">
+                                <i class="fab fa-instagram"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h4>Follow Us</h4>
+                                <a href="https://instagram.com/shes.business" target="_blank">@shes.business</a>
+                                <p>DM us for quick questions and updates</p>
+                            </div>
+                        </div>
+
+                        <div class="contact-method">
+                            <div class="contact-icon">
+                                <i class="fas fa-globe"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h4>Global Community</h4>
+                                <p>9+ chapters worldwide</p>
+                                <p>Students from Vancouver to West Bengal</p>
+                            </div>
+                        </div>
+
+                        <div class="contact-method">
+                            <div class="contact-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h4>Response Time</h4>
+                                <p>24-48 hours for emails</p>
+                                <p>Faster response on Instagram DMs</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact Form -->
+                <div class="contact-form-container">
+                    <h2>Send us a Message</h2>
+                    
+                    <!-- Success Message -->
+                    <div class="success-message" id="success-message">
+                        <i class="fas fa-check-circle" style="font-size: 2rem; margin-bottom: 10px;"></i>
+                        <h3>Message Sent!</h3>
+                        <p>Thank you for reaching out. We'll get back to you as soon as possible.</p>
+                    </div>
+
+                    <form id="contactForm">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="firstName">First Name *</label>
+                                <input type="text" id="firstName" name="firstName" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="lastName">Last Name *</label>
+                                <input type="text" id="lastName" name="lastName" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Email Address *</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="subject">Subject *</label>
+                            <select id="subject" name="subject" required>
+                                <option value="">Select a subject...</option>
+                                <option value="general">General Inquiry</option>
+                                <option value="partnership">Partnership Opportunity</option>
+                                <option value="chapter">Chapter Information</option>
+                                <option value="promotion">Business Promotion</option>
+                                <option value="press">Press & Media</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message">Your Message *</label>
+                            <textarea id="message" name="message" placeholder="Tell us how we can help you..." required></textarea>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary btn-full">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section">
+        <div class="container">
+            <h2>Frequently Asked Questions</h2>
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        How do I start a SheBusiness chapter at my school?
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>You can start a chapter by filling out our Chapter Application form on the Get Involved page. We'll guide you through the process and provide all the resources you need to get started, including marketing materials, event ideas, and ongoing support from our team.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        How can I feature my business on your platform?
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>We'd love to feature your business! Use our Business Promotion Application on the Get Involved page. We spotlight female-owned businesses free of charge on our Instagram and website to help you reach our community of 2,000+ followers and gain valuable exposure.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        Are there any costs to join SheBusiness programs?
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>All our programs and features are completely free! We believe in accessible entrepreneurship education and support. Whether you're starting a chapter, getting your business featured, or joining our community events, there are no costs involved.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        How can I collaborate with SheBusiness?
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>We're always open to collaborations! Whether you're an organization, educator, or fellow entrepreneur, please reach out via our contact form or email us directly at talkshesbusiness@gmail.com. Let us know your ideas and how we can work together to empower more women in business.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        What types of events does SheBusiness host?
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>We host various events including workshops on business innovation, networking sessions, panel discussions with successful entrepreneurs, and skill-building webinars. Follow our Instagram @shes.business for event announcements, or check our website for upcoming activities.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="logo">
+                        <div class="logo-main">SHE'S A BUSINESS</div>
+                        <div class="logo-subtitle">EST. 2024</div>
+                    </div>
+                    <p>Empowering women in business worldwide</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="homepage.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="get-involved.html">Get Involved</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Connect</h3>
+                    <div class="social-links">
+                        <a href="https://instagram.com/shes.business" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="mailto:talkshesbusiness@gmail.com"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 SheBusiness. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileMenu = document.querySelector('.mobile-menu');
+            const navLinks = document.querySelector('.nav-links');
+            
+            mobileMenu.addEventListener('click', function() {
+                navLinks.classList.toggle('active');
+            });
+
+            // FAQ Accordion
+            const faqItems = document.querySelectorAll('.faq-item');
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-question');
+                question.addEventListener('click', () => {
+                    // Close all other items
+                    faqItems.forEach(otherItem => {
+                        if (otherItem !== item) {
+                            otherItem.classList.remove('active');
+                        }
+                    });
+                    // Toggle current item
+                    item.classList.toggle('active');
+                });
+            });
+
+            // Contact Form Submission
+            document.getElementById('contactForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+                showSuccessMessage();
+            });
+        });
+
+        function showSuccessMessage() {
+            const successMessage = document.getElementById('success-message');
+            const contactForm = document.getElementById('contactForm');
+            
+            // Show success message
+            successMessage.classList.add('show');
+            
+            // Scroll to success message
+            successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            
+            // Reset form after success
+            setTimeout(() => {
+                contactForm.reset();
+            }, 1000);
+        }
+    </script>
+</body>
+</html>
